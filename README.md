@@ -1,4 +1,5 @@
 # Color
+[![Build Status](https://travis-ci.org/julianduque/erlang-color.png)](https://travis-ci.org/julianduque/erlang-color)
 
 ANSI colors for your Erlang
 
