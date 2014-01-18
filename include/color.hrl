@@ -10,8 +10,8 @@
 -define(GREEN, "32").
 -define(YELLOW, "33").
 -define(BLUE, "34").
--define(MAGENTA, "36").
--define(CYAN, "37").
--define(WHITE, "38").
+-define(MAGENTA, "35").
+-define(CYAN, "36").
+-define(WHITE, "37").
 -define(DEFAULT, "39").
 
