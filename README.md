@@ -10,7 +10,7 @@ ANSI colors for your Erlang
 
 Make sure you use the `~s` string type, `~p` will escape the ANSI code.
 
-![Screenshot](http://screencloud.net//img/screenshots/e3e9d9f2a866bdbefde8956297d26886.png)
+![Screenshot](http://screencloud.net//img/screenshots/72780a4cdb969e3e3b8a3c0745847143.png)
 
 ## The MIT License (MIT)
 
