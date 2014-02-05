@@ -1,6 +1,7 @@
 -module(color).
 -export([black/1, blackb/1, red/1, redb/1, green/1, greenb/1, blue/1, blueb/1]).
 -export([yellow/1, yellowb/1, magenta/1, magentab/1, cyan/1, cyanb/1, white/1, whiteb/1]).
+-export([on_black/1, on_red/1, on_green/1, on_blue/1, on_yellow/1, on_magenta/1, on_cyan/1, on_white/1]).
 
 -include("color.hrl").
 
@@ -52,6 +53,30 @@ white(Text) ->
 whiteb(Text) ->
   colorb(?WHITE) ++ Text ++ reset().
 
+on_black(Text) ->
+  color(?BLACK_BG) ++ Text ++ reset_bg().
+
+on_red(Text) ->
+  color(?RED_BG) ++ Text ++ reset_bg().
+
+on_green(Text) ->
+  color(?GREEN_BG) ++ Text ++ reset_bg().
+
+on_blue(Text) ->
+  color(?BLUE_BG) ++ Text ++ reset_bg().
+
+on_yellow(Text) ->
+  color(?YELLOW_BG) ++ Text ++ reset_bg().
+
+on_magenta(Text) ->
+  color(?MAGENTA_BG) ++ Text ++ reset_bg().
+
+on_cyan(Text) ->
+  color(?CYAN_BG) ++ Text ++ reset_bg().
+
+on_white(Text) ->
+  color(?WHITE_BG) ++ Text ++ reset_bg().
+
 %% Internal
 color(Color) ->
   ?ESC ++ Color ++ ?END.
@@ -61,3 +86,6 @@ colorb(Color) ->
 
 reset() ->
   ?ESC ++ ?RST ++ ?END.
+
+reset_bg() ->
+  ?ESC ++ ?DEFAULT_BG ++ ?END.

@@ -52,3 +52,20 @@ cyanb_test() ->
 whiteb_test() ->
   ?assertEqual("\e[37;1mwhite\e[0m", color:whiteb("white")).
 
+on_black_test() ->
+  ?assertEqual("\e[40mon_black\e[49m", color:on_black("on_black")).
+on_red_test() ->
+  ?assertEqual("\e[41mon_red\e[49m", color:on_red("on_red")).
+on_green_test() ->
+  ?assertEqual("\e[42mon_green\e[49m", color:on_green("on_green")).
+on_yellow_test() ->
+  ?assertEqual("\e[43mon_yellow\e[49m", color:on_yellow("on_yellow")).
+on_blue_test() ->
+  ?assertEqual("\e[44mon_blue\e[49m", color:on_blue("on_blue")).
+on_magenta_test() ->
+  ?assertEqual("\e[45mon_magenta\e[49m", color:on_magenta("on_magenta")).
+on_cyan_test() ->
+  ?assertEqual("\e[46mon_cyan\e[49m", color:on_cyan("on_cyan")).
+on_white_test() ->
+  ?assertEqual("\e[47mon_white\e[49m", color:on_white("on_white")).
+
