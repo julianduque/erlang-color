@@ -5,9 +5,27 @@ ANSI colors for your Erlang
 
 ## Usage:
 
-```
+#### ANSI standard colors
+
+``` erlang
 1> io:format("Hello, this is the ~s color~n", [ color:red("red") ]).
 ```
+
+![screen shot 2014-02-11 at 9 17 58 am](https://f.cloud.github.com/assets/1532071/2146293/946a634a-93bc-11e3-9a92-666b4f98f974.png)
+
+``` erlang
+1> io:format("Hello, this is on ~s~n", [ color:on_blue("blue blackground") ]).
+```
+
+![screen shot 2014-02-11 at 9 16 25 am](https://f.cloud.github.com/assets/1532071/2146294/9471a056-93bc-11e3-8b97-ac8fe0452bb3.png)
+
+#### xterm 256 colors
+
+``` erlang
+1> io:format("Hello, this color is ~s~n", [ color:rgb([0,1,0], "green") ]).
+```
+
+![screen shot 2014-02-11 at 9 23 49 am](https://f.cloud.github.com/assets/1532071/2146292/945b6cd2-93bc-11e3-9ca0-111e0d69a9fd.png)
 
 Make sure you use the `~s` string type, `~p` will escape the ANSI code.
 
@@ -15,7 +33,7 @@ Make sure you use the `~s` string type, `~p` will escape the ANSI code.
 
 ## The MIT License (MIT)
 
-Copyright (c) 2014 Julian Duque
+Copyright (c) 2014 Julian Duque, Evgeni Kolev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation nfiles (the "Software"), to deal
