@@ -26,3 +26,7 @@
 -define(WHITE_BG, "47").
 -define(DEFAULT_BG, "49").
 
+%% RGB
+-define(RGB_FG, "38" ++ ?SEP ++ "5").
+-define(RGB_BG, "48" ++ ?SEP ++ "5").
+

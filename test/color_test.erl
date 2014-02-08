@@ -54,18 +54,41 @@ whiteb_test() ->
 
 on_black_test() ->
   ?assertEqual("\e[40mon_black\e[49m", color:on_black("on_black")).
+
 on_red_test() ->
   ?assertEqual("\e[41mon_red\e[49m", color:on_red("on_red")).
+
 on_green_test() ->
   ?assertEqual("\e[42mon_green\e[49m", color:on_green("on_green")).
+
 on_yellow_test() ->
   ?assertEqual("\e[43mon_yellow\e[49m", color:on_yellow("on_yellow")).
+
 on_blue_test() ->
   ?assertEqual("\e[44mon_blue\e[49m", color:on_blue("on_blue")).
+
 on_magenta_test() ->
   ?assertEqual("\e[45mon_magenta\e[49m", color:on_magenta("on_magenta")).
+
 on_cyan_test() ->
   ?assertEqual("\e[46mon_cyan\e[49m", color:on_cyan("on_cyan")).
+
 on_white_test() ->
   ?assertEqual("\e[47mon_white\e[49m", color:on_white("on_white")).
+
+rgb_test() ->
+  ?assertEqual("\e[38;5;16mrgb\e[0m", color:rgb([0, 0, 0], "rgb")),
+  ?assertEqual("\e[38;5;59mrgb\e[0m", color:rgb([1, 1, 1], "rgb")),
+  ?assertEqual("\e[38;5;102mrgb\e[0m", color:rgb([2, 2, 2], "rgb")),
+  ?assertEqual("\e[38;5;145mrgb\e[0m", color:rgb([3, 3, 3], "rgb")),
+  ?assertEqual("\e[38;5;188mrgb\e[0m", color:rgb([4, 4, 4], "rgb")),
+  ?assertEqual("\e[38;5;231mrgb\e[0m", color:rgb([5, 5, 5], "rgb")).
+
+on_rgb_test() ->
+  ?assertEqual("\e[48;5;16mrgb\e[49m", color:on_rgb([0, 0, 0], "rgb")),
+  ?assertEqual("\e[48;5;59mrgb\e[49m", color:on_rgb([1, 1, 1], "rgb")),
+  ?assertEqual("\e[48;5;102mrgb\e[49m", color:on_rgb([2, 2, 2], "rgb")),
+  ?assertEqual("\e[48;5;145mrgb\e[49m", color:on_rgb([3, 3, 3], "rgb")),
+  ?assertEqual("\e[48;5;188mrgb\e[49m", color:on_rgb([4, 4, 4], "rgb")),
+  ?assertEqual("\e[48;5;231mrgb\e[49m", color:on_rgb([5, 5, 5], "rgb")).
 
