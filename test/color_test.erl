@@ -92,3 +92,20 @@ on_rgb_test() ->
   ?assertEqual("\e[48;5;188mrgb\e[49m", color:on_rgb([4, 4, 4], "rgb")),
   ?assertEqual("\e[48;5;231mrgb\e[49m", color:on_rgb([5, 5, 5], "rgb")).
 
+true_color_test() ->
+  ?assertEqual("\e[38;2;0;0;0mtrue\e[0m", color:true([0, 0, 0], "true")),
+  ?assertEqual("\e[38;2;255;255;255mtrue\e[0m", color:true([255, 255, 255], "true")),
+  ?assertEqual("\e[38;2;0;0;0mtrue\e[0m", color:true("000000", "true")),
+  ?assertEqual("\e[38;2;68;68;68mtrue\e[0m", color:true("444444", "true")),
+  ?assertEqual("\e[38;2;136;136;136mtrue\e[0m", color:true("888888", "true")),
+  ?assertEqual("\e[38;2;187;187;187mtrue\e[0m", color:true("BBBBBB", "true")),
+  ?assertEqual("\e[38;2;255;255;255mtrue\e[0m", color:true("FFFFFF", "true")).
+
+on_true_color_test() ->
+  ?assertEqual("\e[48;2;0;0;0mtrue\e[0m", color:on_true([0, 0, 0], "true")),
+  ?assertEqual("\e[48;2;255;255;255mtrue\e[0m", color:on_true([255, 255, 255], "true")),
+  ?assertEqual("\e[48;2;0;0;0mtrue\e[0m", color:on_true("000000", "true")),
+  ?assertEqual("\e[48;2;68;68;68mtrue\e[0m", color:on_true("444444", "true")),
+  ?assertEqual("\e[48;2;136;136;136mtrue\e[0m", color:on_true("888888", "true")),
+  ?assertEqual("\e[48;2;187;187;187mtrue\e[0m", color:on_true("BBBBBB", "true")),
+  ?assertEqual("\e[48;2;255;255;255mtrue\e[0m", color:on_true("FFFFFF", "true")).

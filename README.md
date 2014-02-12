@@ -19,6 +19,10 @@ ANSI colors for your Erlang
 
 ![screen shot 2014-02-11 at 9 16 25 am](https://f.cloud.github.com/assets/1532071/2146294/9471a056-93bc-11e3-8b97-ac8fe0452bb3.png)
 
+Make sure you use the `~s` string type, `~p` will escape the ANSI code.
+
+![Screenshot](http://screencloud.net//img/screenshots/72780a4cdb969e3e3b8a3c0745847143.png)
+
 #### xterm 256 colors
 
 ``` erlang
@@ -27,9 +31,22 @@ ANSI colors for your Erlang
 
 ![screen shot 2014-02-11 at 9 23 49 am](https://f.cloud.github.com/assets/1532071/2146292/945b6cd2-93bc-11e3-9ca0-111e0d69a9fd.png)
 
-Make sure you use the `~s` string type, `~p` will escape the ANSI code.
 
-![Screenshot](http://screencloud.net//img/screenshots/72780a4cdb969e3e3b8a3c0745847143.png)
+#### true 24-bit colors
+
+Note: as of this writing, 24-bit colors (ISO-8613-3) are not widely adopted in terminal emulators. Konsole and iTerm2 nighly builds are known to support them.
+
+``` erlang
+1> io:format("The solarized template is ~s ~s ~s ~s ~s ~s ~s ~s ~s ~s ~s ~s ~s ~s ~s ~s ~n", [
+  color:true("002B36", "base03"), color:true("073642", "base02"), color:true("586E75", "base01"),
+  color:true("657B83", "base00"), color:true("839496", "base0"),  color:true("93A1A1", "base1"),
+  color:true("EEE8D5", "base2"),  color:true("FDF6E3", "base3"),  color:true("B58900", "yellow"),
+  color:true("CB4B16", "orange"), color:true("DC322F", "red"),    color:true("D33682", "magenta"),
+  color:true("6C71C4", "violet"), color:true("268BD2", "blue"),   color:true("2AA198", "cyan"),
+  color:true("859900", "green")]).
+```
+
+![screen shot 2014-02-13 at 9 53 49 am](https://f.cloud.github.com/assets/1532071/2157754/0541197a-9484-11e3-87c5-be03f97f43cc.png)
 
 ## The MIT License (MIT)
 

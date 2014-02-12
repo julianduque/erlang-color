@@ -30,3 +30,6 @@
 -define(RGB_FG, "38" ++ ?SEP ++ "5").
 -define(RGB_BG, "48" ++ ?SEP ++ "5").
 
+%% True 24-bit colors
+-define(TRUE_COLOR_FG, "38" ++ ?SEP ++ "2").
+-define(TRUE_COLOR_BG, "48" ++ ?SEP ++ "2").
