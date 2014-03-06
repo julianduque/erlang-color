@@ -84,6 +84,12 @@ on_true_color_test_() ->
     ]
   ].
 
+iodata_test() ->
+  ?assertEqual(
+    "\e[30mtest\e[0m",
+    to_s(color:black([<<"t">>, "e", 115, [[<<"t">>]]]))
+  ).
+
 %% Internal
 
 to_s(IOData) ->
