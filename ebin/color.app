@@ -1,6 +1,6 @@
 {application,color,
              [{description,"ANSI colors for your Erlang"},
-              {vsn,"0.1.0"},
+              {vsn,"0.2.0"},
               {modules,[color]},
               {registered,[]},
               {applications,[kernel,stdlib]},
