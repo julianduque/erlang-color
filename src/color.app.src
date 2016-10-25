@@ -10,5 +10,13 @@
                   kernel,
                   stdlib
                  ]},
-  {env, []}
+  {env, []},
+  %% Package metadata:
+  {pkg_name, erlang_color},
+  {maintainers, ["Julian Duque"]},
+  {licenses, ["MIT"]},
+  {links,
+   [{"GitHub", "https://github.com/julianduque/erlang-color"},
+    {"Hex", "https://hex.pm/packages/erlang_color"}
+   ]}
  ]}.
