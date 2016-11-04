@@ -1,7 +1,7 @@
 # erlang-color
 [![Build Status](https://travis-ci.org/julianduque/erlang-color.png)](https://travis-ci.org/julianduque/erlang-color)
 
-ANSI colors for your Erlang and Elixir
+ANSI colors for your Erlang
 
 ## Usage:
 
@@ -47,7 +47,7 @@ Note: as of this writing, 24-bit colors (ISO-8613-3) are not widely adopted in t
 
 ## The MIT License (MIT)
 
-Copyright (c) 2016 Julian Duque, Evgeni Kolev
+Copyright (c) 2016 Julian Duque, Evgeni Kolev, Duncan McGreggor
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation nfiles (the "Software"), to deal
