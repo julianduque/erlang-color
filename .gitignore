@@ -1,4 +1,50 @@
-*.dump
+# Rebar3 build artifacts
+_build/
+rebar3.crashdump
+rebar.lock
+
+# Erlang compiled files
 *.beam
-.eunit/
-Session.vim
+*.o
+*.so
+*.dll
+
+# Dialyzer files
+.plt
+*.plt
+.dialyzer_plt
+
+# Cover
+.eunit
+eunit.coverdata
+
+# Logs
+*.log
+log/
+logs/
+
+# Temporary files
+.tmp
+tmp/
+*.tmp
+*.temp
+
+# Editor files
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Hex
+doc/

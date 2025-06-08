@@ -1,7 +1,7 @@
 {application, color,
  [
   {description, "ANSI colors for your Erlang"},
-  {vsn, "1.0.0"},
+  {vsn, "2.0.0"},
   {modules, [
              color
             ]},
@@ -11,12 +11,29 @@
                   stdlib
                  ]},
   {env, []},
-  %% Package metadata:
+  
+  %% Hex.pm package metadata
   {pkg_name, erlang_color},
   {maintainers, ["Julian Duque", "Duncan McGreggor"]},
   {licenses, ["MIT"]},
-  {links,
-   [{"GitHub", "https://github.com/julianduque/erlang-color"},
+  {links, [
+    {"GitHub", "https://github.com/julianduque/erlang-color"},
     {"Hex", "https://hex.pm/packages/erlang_color"}
-   ]}
+  ]},
+  {files, [
+    "include",
+    "src", 
+    "README.md",
+    "rebar.config"
+  ]},
+  {build_tools, ["rebar3"]},
+  {requirements, []},
+  {extra, #{
+    <<"maintainers">> => [<<"Julian Duque">>, <<"Duncan McGreggor">>],
+    <<"licenses">> => [<<"MIT">>],
+    <<"links">> => #{
+      <<"GitHub">> => <<"https://github.com/julianduque/erlang-color">>,
+      <<"Hex">> => <<"https://hex.pm/packages/erlang_color">>
+    }
+  }}
  ]}.

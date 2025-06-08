@@ -1,11 +1,17 @@
 # erlang-color
+
+[![CI](https://github.com/julianduque/erlang-color/workflows/CI/badge.svg)](https://github.com/julianduque/erlang-color/actions)
 [![Build Status](https://travis-ci.org/julianduque/erlang-color.png)](https://travis-ci.org/julianduque/erlang-color)
+[![Hex.pm Version](https://img.shields.io/hexpm/v/erlang_color.svg)](https://hex.pm/packages/erlang_color)
+[![Coverage Status](https://codecov.io/gh/julianduque/erlang-color/branch/master/graph/badge.svg)](https://codecov.io/gh/julianduque/erlang-color)
 
 ANSI colors for your Erlang
 
+**Supports Erlang/OTP 24+ and rebar3**.
+
 ## Usage:
 
-#### ANSI standard colors
+### ANSI standard colors
 
 ``` erlang
 1> io:format("Hello, this is the ~s color~n", [ color:red("red") ]).
@@ -47,7 +53,7 @@ Note: as of this writing, 24-bit colors (ISO-8613-3) are not widely adopted in t
 
 ## The MIT License (MIT)
 
-Copyright (c) 2016 Julian Duque, Evgeni Kolev, Duncan McGreggor
+Copyright (c) 2016-2025 Julián Duque, Evgeni Kolev, Duncan McGreggor
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation nfiles (the "Software"), to deal

@@ -1,12 +1,44 @@
 language: erlang
+
+# Modern Erlang/OTP versions
 otp_release:
-  - 18.2.1
-  - 18.1
-  - 18.0
-  - 17.5
-  - R16B03
-  - R16B02
-  - R16B01
-  - R15B03
-  - R15B02
-  - R15B01
+  - 27.0
+  - 26.2
+  - 25.3
+  - 24.3
+
+# Use modern Ubuntu distribution
+dist: jammy
+
+# Cache dependencies for faster builds
+cache:
+  directories:
+    - $HOME/.cache/rebar3
+
+# Install latest rebar3
+before_script:
+  - wget https://s3.amazonaws.com/rebar3/rebar3 && chmod +x rebar3
+  - export PATH="$PWD:$PATH"
+
+# Run comprehensive tests
+script:
+  - rebar3 compile
+  - rebar3 eunit
+  - rebar3 dialyzer
+  - rebar3 cover
+
+# Generate coverage reports
+after_success:
+  - rebar3 as test coveralls send
+
+# Deploy to hex.pm on tags (requires HEX_API_KEY environment variable)
+deploy:
+  provider: script
+  script: rebar3 hex publish --yes
+  on:
+    tags: true
+    otp_release: 27.0
+
+# Notifications
+notifications:
+  email: false

@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    name: Test OTP ${{matrix.otp}} / rebar3 ${{matrix.rebar3}}
+    runs-on: ubuntu-22.04
+    
+    strategy:
+      matrix:
+        otp: [24.3, 25.3, 26.2, 27.0]
+        rebar3: [3.25.0]
+        
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Erlang/OTP
+      uses: erlef/setup-beam@v1
+      with:
+        otp-version: ${{matrix.otp}}
+        rebar3-version: ${{matrix.rebar3}}
+        
+    - name: Restore dependencies cache
+      uses: actions/cache@v3
+      with:
+        path: |
+          _build
+          ~/.cache/rebar3
+        key: ${{ runner.os }}-mix-${{ hashFiles('**/rebar.lock') }}
+        restore-keys: ${{ runner.os }}-mix-
+        
+    - name: Compile
+      run: rebar3 compile
+      
+    - name: Run tests
+      run: rebar3 eunit
+      
+    - name: Run dialyzer
+      run: rebar3 dialyzer
+      
+    - name: Generate coverage
+      run: rebar3 cover
+      
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: _build/test/cover/index.html
+        flags: unittests
+        name: codecov-umbrella
+
+  publish:
+    name: Publish to Hex.pm
+    runs-on: ubuntu-22.04
+    needs: test
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Erlang/OTP
+      uses: erlef/setup-beam@v1
+      with:
+        otp-version: 27.0
+        rebar3-version: 3.25.0
+        
+    - name: Publish to Hex.pm
+      env:
+        HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
+      run: rebar3 hex publish --yes 
