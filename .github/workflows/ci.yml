@@ -8,13 +8,12 @@ on:
 
 jobs:
   test:
-    name: Test OTP ${{matrix.otp}} / rebar3 ${{matrix.rebar3}}
+    name: Test OTP ${{matrix.otp}}
     runs-on: ubuntu-22.04
     
     strategy:
       matrix:
         otp: [24.3, 25.3, 26.2, 27.0]
-        rebar3: [3.25.0]
         
     steps:
     - uses: actions/checkout@v4
@@ -23,7 +22,13 @@ jobs:
       uses: erlef/setup-beam@v1
       with:
         otp-version: ${{matrix.otp}}
-        rebar3-version: ${{matrix.rebar3}}
+        
+    - name: Install rebar3
+      run: |
+        curl -fsSL https://github.com/erlang/rebar3/releases/latest/download/rebar3 -o rebar3
+        chmod +x rebar3
+        sudo mv rebar3 /usr/local/bin/
+        rebar3 version
         
     - name: Restore dependencies cache
       uses: actions/cache@v3
@@ -31,8 +36,8 @@ jobs:
         path: |
           _build
           ~/.cache/rebar3
-        key: ${{ runner.os }}-mix-${{ hashFiles('**/rebar.lock') }}
-        restore-keys: ${{ runner.os }}-mix-
+        key: ${{ runner.os }}-rebar3-${{ hashFiles('**/rebar.config') }}
+        restore-keys: ${{ runner.os }}-rebar3-
         
     - name: Compile
       run: rebar3 compile
@@ -49,7 +54,7 @@ jobs:
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
       with:
-        file: _build/test/cover/index.html
+        file: ./_build/test/cover/eunit.coverdata
         flags: unittests
         name: codecov-umbrella
 
@@ -66,7 +71,13 @@ jobs:
       uses: erlef/setup-beam@v1
       with:
         otp-version: 27.0
-        rebar3-version: 3.25.0
+        
+    - name: Install rebar3
+      run: |
+        curl -fsSL https://github.com/erlang/rebar3/releases/latest/download/rebar3 -o rebar3
+        chmod +x rebar3
+        sudo mv rebar3 /usr/local/bin/
+        rebar3 version
         
     - name: Publish to Hex.pm
       env:
